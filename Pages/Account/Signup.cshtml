@@ -1,0 +1,52 @@
+﻿@page
+@model TaskManagement.Web.Pages.Account.SignupModel
+@{
+    Layout = "_non-dashboard-layout";
+    ViewData["Title"] = "Task Management";
+}
+
+<div class="row row-cols-1 row-cols-lg-3 row-cols-xl-3 mt-4">
+    <div class="col mx-auto">
+        <div class="card">
+            <div class="card-body">
+                <div class="border p-4 rounded">
+                    <div class="form-body">
+                        <div class="my-2 text-center">
+                            <img src="~/assets/images/logo.png" width="80" height="80" alt="" />
+                        </div>
+                        <form class="row g-2 needs-validation" method="post" novalidate>
+                            <div class="col-12">
+                                <label asp-for="@Model.SignupUser.UserName " class="form-label"></label>
+                                <input asp-for="@Model.SignupUser.UserName" class="form-control" required value="">
+                                <div class="invalid-feedback">Name is required.</div>
+                                <span asp-validation-for="@Model.SignupUser.UserName"></span>
+                            </div>
+                            <div class="col-12">
+                                <label asp-for="@Model.SignupUser.Password" class="form-label"></label>
+                                <input asp-for="@Model.SignupUser.Password" class="form-control" required value=""> 
+                                <div class="invalid-feedback">Password is required.</div>
+                                <span asp-validation-for="@Model.SignupUser.Password"></span>
+                            </div>                                                        
+                            <div class="col-12">
+                                <div class="d-grid">
+                                    <button type="submit" class="btn btn-primary"><i class='bx bx-user'></i>Sign up</button>
+                                    <div class="mt-2 text-danger" asp-validation-summary="All"></div>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="login-separater text-center mb-2">
+                            <span>Already have an account ?</span>
+                            <hr />
+                        </div>
+                        <div class="col-md-12 text-center">
+                            <p>
+                                <a href="/Account/login">Sign in here</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

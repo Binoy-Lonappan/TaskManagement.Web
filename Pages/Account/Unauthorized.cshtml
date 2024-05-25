@@ -1,0 +1,31 @@
+﻿@page
+@model TaskManagement.Web.Pages.Account.UnauthorizedModel
+@{
+	ViewData["Title"] = "Task Management";
+	Layout = "_non-dashboard-layout";
+}
+<div class="error-404 d-flex align-items-center justify-content-center">
+	<div class="container">
+		<div class="card py-1">
+			<div class="row g-0">
+				<div class="col col-xl-5">
+					<div class="card-body p-4">
+						<h1 class="display-1"><span class="text-primary">4</span><span class="text-danger">0</span><span class="text-success">3</span></h1>
+						<h2 class="font-weight-bold display-4">Unauthorized access</h2>
+						<p>
+							Oops, You don't have permission to access this resource.
+							<br>You have tried to access a resource for which you have not been provided access.
+						</p>
+						<div class="mt-5">
+							<a href="javascript:;" class="btn btn-primary btn-lg px-md-5 radius-30">Home</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-7">
+					<img src="https://cdn.searchenginejournal.com/wp-content/uploads/2019/03/shutterstock_1338315902.png" class="img-fluid" alt="">
+				</div>
+			</div>
+			<!--end row-->
+		</div>
+	</div>
+</div>

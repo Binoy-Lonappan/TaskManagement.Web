@@ -1,0 +1,111 @@
+﻿@page
+@model TaskManagement.Web.Pages.ToDoTasksModel
+@{
+}
+@section PageHeader {
+    <link href="~/assets/plugins/fullcalendar/css/main.min.css" rel="stylesheet" />
+}
+<div class="card">
+    <div class="card-body">
+        <div class="table-responsive">
+            <div id='calendar'></div>
+        </div>
+    </div>
+</div>
+<!-- New Task modal -->
+<div class="modal" tabindex="-1" role="dialog" id="new-task-modal" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><i class="fa fa-gear" aria-hidden="true"></i> New Task</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body bg-light">
+                <form id="frmNewTask" name="frmNewTask" class="row needs-validation" novalidate>
+                    <div class="row g-3">
+                        <div class="col-md-12">
+                            <div class="input-group mb-3">
+                                <label class="input-group-text" for="inp-mdl-client">Title</label>
+                                <input asp-for="@Model.tasksToDo.Title" class="form-control" required>
+                                <div class="invalid-feedback">Title is required.</div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="input-group mb-3">
+                                <label class="input-group-text" for="inp-mdl-staff">Description</label>
+                                <input asp-for="@Model.tasksToDo.Description" class="form-control" required>
+                                <div class="invalid-feedback">Task description is required.</div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="input-group mb-3">
+                                <label class="input-group-text" for="inp-mdl-startdate">Due Date</label>
+                                <input asp-for="@Model.tasksToDo.DueDate" type="date" class="form-control" required>
+                                <div class="invalid-feedback">Due date is required.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <input type="hidden" asp-for="@Model.tasksToDo.Status">
+                    <input type="hidden" asp-for="@Model.tasksToDo.Id">
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btn-mdl-save-newtask" class="btn btn-outline-success px-2"><i class='bx bx-save'></i>Save</button>
+                <button type="button" class="btn btn-outline-danger px-2" data-bs-dismiss="modal"><i class='bx bx-window-close'></i>Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Edit Task modal -->
+<div class="modal" tabindex="-1" role="dialog" id="edit-task-modal" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><i class="fa fa-gear" aria-hidden="true"></i>Edit Task</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body bg-light">
+                <form id="frmEditTask" name="frmEditTask" class="row needs-validation" novalidate>
+                    <div class="row g-3">
+                        <div class="col-md-12">
+                            <div class="input-group mb-3">
+                                <label class="input-group-text" for="inp-mdl-client">Title</label>
+                                <input id="mdledit_Title" class="form-control" required>
+                                <div class="invalid-feedback">Title is required.</div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="input-group mb-3">
+                                <label class="input-group-text" for="inp-mdl-staff">Description</label>
+                                <input id="mdledit_Description" class="form-control" required>
+                                <div class="invalid-feedback">Task description is required.</div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="input-group mb-3">
+                                <label class="input-group-text" for="inp-mdl-startdate">Due Date</label>
+                                <input id="mdledit_DueDate" type="date" class="form-control" required>
+                                <div class="invalid-feedback">Due date is required.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <input type="hidden" id="mdledit_Status">
+                    <input type="hidden" id="mdledit_Id">
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btn-mdl-save-edittask" class="btn btn-outline-success px-2"><i class='bx bx-save'></i>Save</button>
+                <button type="button" id="btn-mdl-delete-edittask" class="btn btn-outline-danger px-2"><i class='bx bx-trash'></i>Delete</button>
+                <button type="button" class="btn btn-outline-primary px-2" data-bs-dismiss="modal"><i class='bx bx-window-close'></i>Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@Html.AntiForgeryToken()
+
+@section Scripts {
+    <script src="~/assets/plugins/fullcalendar/js/main.min.js"></script>
+    <script src="~/assets/js/app-fullcalendar.js"></script>
+}
