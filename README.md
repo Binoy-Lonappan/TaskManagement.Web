@@ -11,3 +11,10 @@ After login 2 menus will be visible.
  1. Home (by default the home page will be visible, since there is no data the graphs will not be displayed initially, There are two pie charts available showing current year task and Total tasks by status.)
  2. Tasks (You can create new task using the Add task button, Edit / Delete by clicking on the task created.
 
+Technologies Used
+1. .Net Core 6
+2. Entity FrameWork
+3. Api
+4. Jquery
+5. Ajax
+6. MsSql
