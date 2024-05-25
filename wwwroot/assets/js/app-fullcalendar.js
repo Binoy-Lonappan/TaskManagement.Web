@@ -110,9 +110,9 @@ $(function () {
                     todo.dragBgColor = color;
                     addCalendar(todo);
                     calendar.addEvent(todo);
-                });                
-                calendar.render();
+                });    
             }
+            calendar.render();
         });
 
     }

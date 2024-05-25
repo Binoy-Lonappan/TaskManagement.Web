@@ -18,13 +18,13 @@
                         <form class="row g-3 needs-validation" method="post" novalidate>
                             <div class="col-12">
                                 <label asp-for="@Model.LoginUser.LoginID" class="form-label"></label>
-                                <input asp-for="@Model.LoginUser.LoginID" class="form-control" required value="Admin">
+                                <input asp-for="@Model.LoginUser.LoginID" class="form-control" required value="">
                                 <div class="invalid-feedback">Username is required.</div>
                                 <span asp-validation-for="@Model.LoginUser.LoginID"></span>
                             </div>
                             <div class="col-12">
                                 <label asp-for="@Model.LoginUser.Password" class="form-label"></label>
-                                <input asp-for="@Model.LoginUser.Password" class="form-control" required value="123">
+                                <input asp-for="@Model.LoginUser.Password" class="form-control" required value="">
                                 <div class="invalid-feedback">Password is required.</div>
                                 <span asp-validation-for="@Model.LoginUser.Password"></span>
                             </div>                                                  
